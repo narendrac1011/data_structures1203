@@ -48,13 +48,13 @@ NodeAddress Search(NodeAddress root, int val){
 
 //Second Code for Search
 NodeAddress Search2(NodeAddress root, int val){
-    return root?((val==root->val)? root: ((val < root->val)? Search2(root->left , val): Search2(root->right, val))): NULL;
+    return root?((val == root->val)? root: ((val < root->val)? Search2(root->left , val): Search2(root->right, val))): NULL;
 }
 
 
 //Inserting a Root in a BST
 NodeAddress Insert(NodeAddress root, int val){
-	if(root==NULL){
+	if(root == NULL){
         return CreateNode(val);
     }
 
@@ -150,7 +150,7 @@ int main(){
 
     printf("\n");
 
-    Insert(root, 23);
+    Insert(root, 22);
     Insert(root, 1);
     Insert2(root, 46);
 
