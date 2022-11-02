@@ -35,7 +35,7 @@ int main(){
     printf("The Unsorted Array is: ");
     PrintArray(array, n);
 
-    //Selection Sort of the above Array
+    //Insertion Sort of the above Array
     InsertionSort(array, n);
 
     //Print the Sorted Array
