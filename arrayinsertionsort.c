@@ -2,6 +2,12 @@
 
 //Insertion Sort
 void InsertionSort(int a[], int n){
+
+    //For Empty List
+    if(!a){
+        return;
+    }
+
     for (int i = 1; i < n; i++){
         int x = a[i];
         int j = i - 1;
