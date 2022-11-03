@@ -10,6 +10,12 @@ void swap(int *x, int *y){
 
 //Selection Sort
 void SelectionSort(int a[], int n){
+
+    //For Empty List
+    if (!a){
+        return;
+    }
+
     for (int i = 0; i < n - 1; i++){
         int p = i;
 
