@@ -84,7 +84,7 @@ int *InsertMinHeap(int *a, int size, int val){
     //We Reallocate memory and change the size assigned to size + 1.
     a = realloc(a, (size + 1)*sizeof(int));
 
-    //The Last Element in the array, i.e. the nth index, would be assigned the value that is to be Inserted.
+    //The Last Element in the array would be assigned the value that is to be Inserted.
     a[size] = val;
 
     int j = size;
@@ -93,7 +93,7 @@ int *InsertMinHeap(int *a, int size, int val){
     //If not, we take the element to a stable location where the properties of Min Heap won't get effected!
     while(j > 0){
 
-        //For the node i, the parent woukd at the location (j - 1)/2.
+        //For the node i, the parent would be at the location (j - 1)/2.
         int parent = (j - 1)/2;
 
         //If the value of parent node is greater than the value of child node, we swap!      
@@ -109,7 +109,7 @@ int *InsertMinHeap(int *a, int size, int val){
         //After swapping, we set the child as the parent node.
         j = parent;
 
-    }//We repeat the same thing for the ith index, i.e. the new parent node
+    }//We repeat the same thing for the jth index, i.e. the new parent node
 
     //Return the new array (Min Heap).
     return a;
