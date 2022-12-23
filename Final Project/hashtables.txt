@@ -1,0 +1,161 @@
+Narendra Chatta
+CS-1203: Data Structures
+Debayan Gupta
+Final Project : Hash Tables Using Both Open Addressing and Closed Addressing
+
+
+We know that a Hash Table is a data structure that is used to store value pairs in an associative
+manner. It stores the data where each data value has its own unique index which we calculate
+using a hash function.
+I have attached 2 C Programs, in which I create a hash table and do the Operations such as Insert,
+Search and Delete using both Open Addressing (Linear Probing) and Closed Addressing
+(Chaining). Both of these are techniques used to prevent collision of data in a Hash Table.
+
+
+Chaining:
+In Chaining, if 2 or more elements get the same index number, then we treat the index as a linked
+list. Thus, each and every element with the index ‘i’ would be in the linked list, but in a first
+insert first placed order. This way, we are able to insert as many elements as we want. We can
+also do operations such as delete and search easily. However, Chaining is bad in cases of
+Searching.
+
+
+Linear Probing:
+In Linear Probing (Open Addressing), if 2 elements 'i' and 'j' are inserted one after the other and
+get the same index, then element 'i' would be at the index and 'j' would find an available space
+after the index of 'i'. This way we can only insert 'n' elements, where n is the size of the Hash
+Table. In cases where only the last index is empty, but a node maps to index 1, then for it to get
+inserted, we increase the index by 1 until we get an empty index. Thus, Linear Probing is bad in
+cases of Insertion.
+
+#=================================================================================================================
+
+Details about the Programs:
+First, I initialize a Hash Table of a given Size, where all the indexes have no elements, i.e. empty
+indexes. We then execute certain operations such as Insertion, Searching and Deletion in both the
+programs – Using Chaining and Using Linear Probing.
+
+
+Implementation in Both the Programs:
+
+1. Insertion: Given a Node with Name, Age, Gender, Batch and Major, we can insert it in the Hash
+Table in Constant time, i.e. O(1). If that node is NULL, we won’t insert anything in the Hash
+Table. If the node is not NULL and has certain values, then we find the index for that node using
+the Hash Function (We have used Hash Dot Family Function). Then we write the node values
+into the Hash Table at the respective index. Moreover, if a node is already present in the Hash
+Table then we don’t need to insert it in the table again. The Collision rate using both Chaining and
+Linear Probing is zero.
+
+● In chaining, since each index is a Linked List, we can insert any number of elements to the Hash
+Table. If we have 2 elements with the same index, we create a linked list at that index with 2
+elements. However, in Linear Probing, we can only insert ‘n’ elements, where n is the size of the
+Hash Table. If we have 2 elements with the same index, then one would be inserted at that index
+and the other would look up for an empty index to be inserted.
+
+
+2. Searching: If we have to search a Person’s name in the Hash Table, we first find the
+index for the person node using the Hash function. We check for the node/s in that index.
+We then check if the names of the 2 nodes are the same. If they are the same, then we
+have found the node in the Hash Table, else if there is no match, then there is no element
+in the Hash Table with that name.
+
+● In case of Chaining, we find the index, then create a temporary node. We run a loop until
+we have searched each and every node in the linked list. Thus if the name of the
+temporary node, temp matches with any of the node’s names in the Linked list, we have
+found the Person. Else there is no element with that name in the Hash table. However, in
+case of linear probing, we find the index, if it matches with the searched node, then we
+have found the node. Else if the node’s name doesn’t match with the searched name, then
+we have to go to the next index, i.e. index + 1. We keep on doing this until we find the
+name or we reach the end of the table.
+
+
+3. Deletion:
+● In case of Chaining: Given a node, we first find the index of the given node. Then we
+create a temporary node, temp, with the same index and we also create a prev node which
+would later be used if we found the node to be deleted. We run a loop until we have
+searched for the node to be deleted in the entire linked list. If the temporary node name
+and the name of the node to be deleted are the same, then we delete that node and
+stabilize the linked list.
+
+● In case of Linear Probing: Given a node, we first find the index of the given node. If the
+node at the index value and the node to be deleted are the same then we delete the node
+and set the node as -<deleted>-. If they do not match, then we move on to the next index.
+We keep on doing this, until the nodes match or we have reached the end of the Hash
+table.
+
+
+#================================================================================================================
+How has my code been tested? (Applies for both the Collision Techniques)
+
+1. I have first initialized the Hash Table and each and every index in the table is
+NULL/Empty. Then I print the Hash Table.
+
+2. I have created a dataset with different people’s name, age, gender, batch and major. Using
+this dataset, I insert every person to the Hash Table. While Inserting, collision is taken
+into consideration using different techniques – Chaining and Linear Probing. Then I print
+the Hash Table again, but this time the Hash Table has some values at certain indexes.
+
+3. Now we have a Hash Table with all the Inserted values. Using this table, we search for
+certain people in the table. If their name is found in the table, then we print all their data.
+Else we print that the person is not found.
+
+4. Using the same Hash Table with all Inserted values, we delete certain people from the
+table and print the Hash Table again. Once a person is deleted from the table, their index
+shows the value as -<deleted>- and that index would be available for insertion in the
+future.
+
+5. Moreover, we can insert an element in indexes which are empty or shown as -<deleted>-.
+
+#===============================================================================================================
+
+Instructions for the Professor and TAs to run the Program: 
+
+These Instructions apply to both the Chaining and Linear Probing Programs.
+
+1. There are no specific instructions to run the program. If you run the program, you will get
+every output on its own. I have made it like this because certain functions like ‘scanf’ do
+not work on my laptop.
+
+2. However, you can add people to the data set and insert them. Moreover, you can search
+for any names in the Hash Table, it will definitely give you an output whether the person
+is the table or not. You can also delete any person in the Hash Table. If you delete a
+person, the index of that person will show -deleted-.
+
+#===============================================================================================================
+
+Time and Space Complexities:
+
+1. Using Chaining:
+
+● Time Complexity :
+    - Insertion :
+        - Best Case : Constant, O(1)
+        - Worst Case : Constant, O(1)
+
+    - Searching :
+        - Best Case : Constant, O(1)
+        - Worst Case : Linear, O(n)
+
+    - Deletion:
+        - Best Case : Constant, O(1)
+        - Worst Case : Linear, O(n)
+
+● Space Complexity: O(m * n), where m is the size of the Linked List and n is the size of the Hash Table.
+
+
+2. Using Linear Probing:
+
+● Time Complexity :
+    - Insertion:
+        - Best Case : Constant, O(1)
+        - Worst Case : Linear, O(n)
+
+    - Searching:
+        - Best Case : Constant, O(1)
+        - Worst Case : Constant, O(1)
+
+    - Deletion:
+        - Best Case : Constant, O(1)
+        - Worst Case : Constant, O(1)
+        
+● Space Complexity: O(n), where n is the size of the Hash Table
